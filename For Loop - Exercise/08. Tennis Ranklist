@@ -1,0 +1,40 @@
+using System;
+
+namespace For_main
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double numTur = int.Parse(Console.ReadLine());
+            double points = int.Parse(Console.ReadLine());
+
+            double earnedPoints = 0;
+            double winMach = 0;
+
+            for (int i = 0; i < numTur; i++)
+            {
+                string rank = Console.ReadLine();
+                switch (rank)
+                {
+                    case "W":
+                        earnedPoints += 2000;
+                        winMach += 1;
+                        break;
+                    case "F":
+                        earnedPoints += 1200;
+                        break;
+                    case "SF":
+                        earnedPoints += 720;
+                        break;
+                }
+            }
+            points += earnedPoints;
+            double averagePoints = Math.Floor(earnedPoints / numTur);
+            double winMachPerr = winMach / numTur * 100; 
+            Console.WriteLine($"Final points: {points}");
+            Console.WriteLine($"Average points: {averagePoints}");
+            Console.WriteLine($"{winMachPerr:f2}%");
+        }
+    }
+}
