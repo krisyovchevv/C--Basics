@@ -16,4 +16,5 @@ switch(true)
     default:
 <<<else what to do>>>
     break;
- }
+}
+```
