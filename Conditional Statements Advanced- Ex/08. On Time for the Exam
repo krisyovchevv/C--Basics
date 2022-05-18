@@ -1,0 +1,60 @@
+using System;
+
+namespace invalid_number
+{
+    class invalid
+    {
+        static void Main(string[] args)
+        {
+            int examHour = int.Parse(Console.ReadLine());
+            int examMinute = int.Parse(Console.ReadLine());
+            int comeHour = int.Parse(Console.ReadLine());
+            int comeMinute = int.Parse(Console.ReadLine());
+
+            int diff = 0;
+            int hour =  0;
+            int minute = 0;
+
+            examMinute += examHour * 60;
+            comeMinute += comeHour * 60;
+
+            if (examMinute < comeMinute)
+            {
+                Console.WriteLine("Late");
+                diff = comeMinute - examMinute;
+                if (diff < 60)
+                {
+                    Console.WriteLine($"{diff} minutes after the start");
+                }
+                else
+                {
+                    hour = diff / 60;
+                    minute = diff % 60;
+                    Console.WriteLine($"{hour}:{minute:d2} hours after the start");
+
+                }
+            }
+            else if (comeMinute < examMinute - 30)
+            {
+                Console.WriteLine("Early");
+                diff = examMinute - comeMinute;
+                if (diff < 60)
+                {
+                    Console.WriteLine($"{diff:d2} minutes before the start");
+                }
+                else
+                {
+                    hour = diff / 60;
+                    minute= diff % 60;
+                    Console.WriteLine($"{hour}:{minute:d2} hours before the start");
+                }
+            }
+            else
+            {
+                Console.WriteLine("On time");
+                diff = examMinute - comeMinute;
+                Console.WriteLine($"{diff} minutes before the start");
+            }
+        }
+    }
+}
