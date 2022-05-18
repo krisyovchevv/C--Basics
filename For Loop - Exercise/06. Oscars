@@ -1,0 +1,32 @@
+using System;
+
+namespace For_main
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string actor = Console.ReadLine();
+            double overalPoints = double.Parse(Console.ReadLine());
+            double numEvaluators = int.Parse(Console.ReadLine());
+            
+            for (int i = 0; i < numEvaluators; i++)
+            {
+                string evaluator = Console.ReadLine();
+                double evaluatorPoints = double.Parse(Console.ReadLine());
+
+                overalPoints = overalPoints + ((evaluator.Length * evaluatorPoints) / 2);
+                if (overalPoints >= 1250.5)
+                {
+                    Console.WriteLine($"Congratulations, {actor} got a nominee for leading role with {overalPoints:f1}!");
+                    break;
+                }
+            }
+            if (overalPoints < 1250.5)
+            {
+                double diff = Math.Abs(overalPoints - 1250.5);
+                Console.WriteLine($"Sorry, {actor} you need {diff:f1} more!");
+            }
+        }
+    }
+}
