@@ -1,0 +1,73 @@
+using System;
+
+namespace invalid_number
+{
+    class invalid
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            string typeRoom = Console.ReadLine();
+            string roomRating = Console.ReadLine();
+            int nights = days - 1;
+            double price = 0;
+            double discountNights = 0;
+            double discountRating = 0;
+
+            switch (typeRoom)
+            {
+                case "room for one person":
+                    price = nights * 18;
+                    break;
+                case "apartment":
+                    price = nights * 25;
+                    if (nights < 10)
+                    {
+                        discountNights = price * 0.3;
+                        price -= discountNights;
+                    }
+                    else if (nights < 15)
+                    {
+                        discountNights = price * 0.35;
+                        price -= discountNights;
+                    }
+                    else if (nights > 15)
+                    {
+                        discountNights = price * 0.5;
+                        price -= discountNights;
+                    }
+                    break;
+                case "president apartment":
+                    price = nights * 35;
+                    if (nights < 10)
+                    {
+                        discountNights = price * 0.1;
+                        price -= discountNights;
+                    }
+                    else if (nights < 15)
+                    {
+                        discountNights = price * 0.15;
+                        price -= discountNights;
+                    }
+                    else if (nights > 15)
+                    {
+                        discountNights = price * 0.2;
+                        price -= discountNights;
+                    }
+                    break;
+            }
+            switch (roomRating)
+            {
+                case "positive":
+                    discountRating = price * 0.25;
+                    price += discountRating;
+                    break;
+                case "negative":
+                    discountRating = price * 0.1;
+                    price -= discountRating;
+                    break;
+            }
+            Console.WriteLine($"{price:f2}");
+        }
+    }
+}
