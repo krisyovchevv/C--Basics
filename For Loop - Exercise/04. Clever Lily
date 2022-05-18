@@ -1,0 +1,46 @@
+using System;
+
+namespace For_main
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int ageLily = int.Parse(Console.ReadLine());
+            double laundryPrice = double.Parse(Console.ReadLine());
+            int toysPrice = int.Parse(Console.ReadLine());
+
+            int upMoney = 10;
+            double savings = 0;
+            int toysNum = 0;
+
+            for (int i = 1; i <= ageLily; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    savings += upMoney;
+                    upMoney += 10;
+                    savings -= 1;
+                }
+                else
+                {
+                    toysNum += 1;
+                }
+            }
+
+            double moneyFromToys = toysPrice * toysNum;
+            savings += moneyFromToys;
+
+            if (savings >= laundryPrice)
+            {
+                double diff = Math.Abs(savings - laundryPrice);
+                Console.WriteLine($"Yes! {diff:f2}");
+            }
+            else
+            {
+                double diff = Math.Abs(savings - laundryPrice);
+                Console.WriteLine($"No! {diff:f2}");
+            }
+        }
+    }
+}
