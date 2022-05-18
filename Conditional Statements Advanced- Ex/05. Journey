@@ -1,0 +1,70 @@
+using System;
+
+namespace invalid_number
+{
+    class invalid
+    {
+        static void Main(string[] args)
+        {
+            double budget = double.Parse(Console.ReadLine());
+            string season = Console.ReadLine();
+            double offPrice = 0;
+            string where = null;
+
+            switch (season)
+            {
+                case "winter":
+                    if (budget <= 101)
+                    {
+                        offPrice = budget * 0.7;
+                        budget -= offPrice;
+                        where = "Bulgaria";
+                    }
+                    else if (budget <= 1000)
+                    {
+                        offPrice = budget * 0.8;
+                        budget -= offPrice;
+                        where = "Balkans";
+                    }
+                    else if (budget > 1000)
+                    {
+                        offPrice = budget * 0.9;
+                        budget -= offPrice;
+                        where = "Europe";
+                    }
+                    Console.WriteLine($"Somewhere in {where}");
+                    Console.WriteLine($"Hotel - {offPrice:f2}");
+                    break;
+                case "summer":
+                    if (budget <= 101)
+                    {
+                        offPrice = budget * 0.3;
+                        budget -= offPrice;
+                        where = "Bulgaria";
+                    }
+                    else if (budget <= 1000)
+                    {
+                        offPrice = budget * 0.4;
+                        budget -= offPrice;
+                        where = "Balkans";
+                    }
+                    else if (budget > 1000)
+                    {
+                        offPrice = budget * 0.9;
+                        budget -= offPrice;
+                        where = "Europe";
+                    }
+                    Console.WriteLine($"Somewhere in {where}");
+                    if (where == "Europe")
+                    {
+                        Console.WriteLine($"Hotel - {offPrice:f2}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Camp - {offPrice:f2}");
+                    }
+                    break;
+            }
+        }
+    }
+}
